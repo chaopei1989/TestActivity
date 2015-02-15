@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:layout_alignParentTop="true"
+        android:background="@color/av_tab_divider" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="66dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/av_dp_14"
+        android:gravity="center_vertical"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Call Debug"
+            android:textColor="@color/av_textcolor_brown"
+            android:textSize="@dimen/av_sp_17" />
+
+        <TextView
+            android:id="@+id/desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/av_dp_2"
+            android:duplicateParentState="true"
+            android:text="Log file is CALL_DEBUG in your sdcard"
+            android:textColor="@color/av_textcolor_gray_light"
+            android:textSize="@dimen/av_sp_14" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/common_img_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/av_dp_14"
+        android:src="@drawable/av_common_arrow_right" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:layout_alignParentBottom="true"
+        android:background="@color/av_tab_divider" />
+
+</RelativeLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="common_titlebar_content_height">50dp</dimen>
+    <!-- <dimen name="common_titlebar_shadow_height">6dp</dimen> -->
+    <dimen name="common_titlebar_setting_height">34dp</dimen>
+    <dimen name="common_titlebar_setting_min_width">56dp</dimen>
+
+</resources>

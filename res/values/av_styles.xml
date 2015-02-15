@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <style name="av_Transparent">
+        <item name="android:windowBackground">@color/av_transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@+android:style/Animation.Translucent</item>
+    </style>
+    
+<!-- 隐私空间底部文字样式 -->
+    <style name="av_margin_bg_bottom_privacy_text">
+        <item name="android:textColor">@color/av_textcolor_gray</item>
+        <item name="android:shadowColor">@color/av_white</item>
+        <item name="android:shadowDx">1</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">0.5</item>
+    </style>
+    
+    <!-- 新版本杀毒 -->
+
+    <style name="av_TextAppearance" parent="@android:style/TextAppearance">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="av_TextAppearance.Title">
+        <item name="android:textColor">@color/av_textcolor_title</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+    
+    <style name="av_TextAppearance.Title.White">
+        <item name="android:textColor">@color/av_white</item>
+        <item name="android:textSize">19sp</item>
+    </style>
+    
+    <style name="av_listview">
+        <item name="android:cacheColorHint">@android:color/transparent</item>
+        <item name="android:listSelector">@drawable/common_list_row</item>
+        <item name="android:divider">@color/av_list_divider</item>
+        <item name="android:dividerHeight">1px</item>
+    </style>
+</resources>

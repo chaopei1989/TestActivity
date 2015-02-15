@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+
+    <declare-styleable name="AV_Shield_TitleBar">
+        <attr name="av_btnLeftVisible" format="boolean" />
+        <attr name="av_titleText" format="string" />
+        <attr name="av_btnTextVisible" format="boolean" />
+        <attr name="av_btnTextString" format="string" />
+        <attr name="av_btnTextBackground" format="reference" />
+        <attr name="av_btnMenuVisible" format="boolean" />
+        <attr name="av_btnMenuSrc" format="reference" />
+        <attr name="av_btnMenuBackground" format="reference" />
+        <attr name="av_btnLeftBackground" format="reference" />
+        <attr name="av_titlebarBackground" format="reference" />
+    </declare-styleable>
+    
+    <declare-styleable name="av_CheckBox">
+        <attr name="av_buttonStyle" format="string" />
+    </declare-styleable>
+</resources>

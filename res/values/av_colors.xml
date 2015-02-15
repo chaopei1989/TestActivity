@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <!-- 通用颜色 -->
+    <color name="av_black">#000000</color>
+    <color name="av_transparent">#00000000</color>
+    <color name="av_white">#FFFFFF</color>
+    <color name="av_white_disable">#99FFFFFF</color>
+    <color name="av_white_opacity_60">#9AFFFFFF</color>
+    <!-- <color name="av_yellow">#ea8900</color> -->
+    <color name="av_red">#F95D5D</color>
+
+    <!-- 文字颜色 -->
+    <color name="av_textcolor_title">#000000</color>
+    <color name="av_textcolor_medium">#41434a</color>
+    <color name="av_textcolor_gray">#a1a5a8</color>
+    <color name="av_textcolor_gray_light">#b5bbbe</color>
+    <color name="av_textcolor_brown">#595b5c</color>
+    <color name="av_textcolor_green">#2dce4a</color>
+    <color name="av_textcolor_yellow">#ec952e</color>
+    <color name="av_textcolor_red">#f6606d</color>
+    <!-- <color name="av_textcolor_titlebar_button">#6b6a6a</color> -->
+    <color name="av_textcolor_brown_pressed">#686868</color>
+    <color name="av_textcolor_listitem">#595b5c</color>
+    <color name="av_textcolor_btn">#525354</color>
+    <color name="av_textcolor_btn_disable">#66525354</color>
+    <color name="av_textcolor_dialog">#868a8d</color>
+    
+    <!-- 工程中统一颜色 -->
+    <color name="av_white_select">#f6f9fa</color>
+    <color name="av_white_grey">#e0e0e0</color>
+    <color name="av_scan_bg">#f1f6f8</color>
+    <color name="av_screen_bg_color">@color/av_white</color>
+    <color name="av_item_bg_normal_color">#f5f5f5</color>
+    <color name="av_item_bg_pressed_color">#d3d3d3</color>
+    <color name="av_list_divider">#e1e1e1</color>
+    <color name="av_tab_divider">#e2e1e1</color>
+    <color name="av_tab_selected_color">#3fda5b</color>
+    <color name="av_list_item_lighttext">#b5bbbe</color>
+    
+    <!-- 首一个一级页面的一键优化或者查看详情的按钮的文字颜色 -->
+    <!-- <color name="av_main_btn_text_color_normal">#ffffff</color>
+    <color name="av_main_btn_text_color_pressed">#4cffffff</color> -->
+    
+
+    <!-- titlebar颜色 start -->
+    <!-- <color name="av_titlebar_bg_orange">#f08b09</color>
+    <color name="av_titlebar_bg_green">#2eaa0c</color> -->
+    <!-- titlebar颜色 end -->
+    
+    <!-- 每个子模块首页的颜色 start-->
+    <color name="av_main_toplayout_bg_orange">#e98709</color>
+    <color name="av_main_toplayout_bg_green">#22a501</color>
+    <color name="av_main_toplayout_bg_red">#d94800</color>
+    <!-- 每个子模块首页的颜色 end -->
+    
+   
+    <!-- 软件静默安装弹窗 start-->
+    <color name="av_packagereview_window_blue">#0096ff</color>
+    <!-- 软件静默安装弹窗 end -->
+    
+    <!-- 杀毒结果页面 -->
+    <color name="av_infopanel_bg_green">#559817</color>
+    
+    <!-- root模块以及杀毒结果页 START-->
+    <color name="av_main_result_yellow_1">#c9a358</color>
+    <color name="av_main_result_red_0">#ea5e5d</color>
+    <!-- Delete by chaopei, not use  -->
+    <!-- <color name="av_main_result_red_1">#db5353</color> -->
+    <!-- root模块以及杀毒结果页 END-->
+    
+    <!-- 联网升级 start -->
+    <color name="av_textcolor_upgrade_dark">#6e777a</color>
+    <color name="av_textcolor_upgrade_mid_grey">#bbc3c5</color>
+    <!-- 联网升级 end -->
+    
+    
+    
+    <color name="common_font_color_15">#33b32d</color>
+    
+    
+    
+    <!-- 通知栏色值 -->
+    
+    <!-- <color name="av_main_notify_block_bg">#26677f</color> -->
+    <color name="av_main_notify_net_traffic_textcolor">#f1f1f1</color>
+    <!-- <color name="av_main_notify_block_icon_textcolor">#ff4800</color> -->
+    
+    <!-- 弹窗色值 -->
+    <color name="av_dialog_divider_color">#d0d0d0</color>
+    <color name="av_notify_item_color">#28707070</color>
+    
+    <!-- V2　backgroud color -->
+    <color name="av_titlesetting_bg_color">#1e000000</color>
+    <color name="av_vicetitle_bg_color">#f6f9fa</color>
+    <color name="av_title_color_green">#28b443</color>
+    <color name="av_bg_color_green">#2abf74</color>
+    <color name="av_bg_color_red">#ee5693</color>
+    <color name="av_bg_color_yellow">#ecca41</color>
+    <!-- V2 divider color -->
+    <color name="av_divider_grey">#e2e1e1</color>
+</resources>
