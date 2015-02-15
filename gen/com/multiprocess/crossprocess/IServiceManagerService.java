@@ -1,6 +1,6 @@
 /*
  * This file is auto-generated.  DO NOT MODIFY.
- * Original file: D:\\android_project\\TestActivity\\src\\com\\multiprocess\\crossprocess\\IServiceManagerService.aidl
+ * Original file: D:\\GitHub\\TestActivity\\src\\com\\multiprocess\\crossprocess\\IServiceManagerService.aidl
  */
 package com.multiprocess.crossprocess;
 public interface IServiceManagerService extends android.os.IInterface

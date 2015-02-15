@@ -1,12 +1,17 @@
-D:/android_project/TestActivity//obj/local/armeabi-v7a/objs/mongo/exec-mmap/mongolite.o: \
- D:/android_project/TestActivity//jni/exec-mmap/mongolite.c \
- D:/android_project/TestActivity//jni/exec-mmap/mongolite.h \
- D:/android_project/TestActivity//jni/exec-mmap/help.h \
+D:/GitHub/TestActivity//obj/local/armeabi-v7a/objs/mongo/exec-mmap/mongolite.o: \
+ D:/GitHub/TestActivity//jni/exec-mmap/mongolite.c \
+ D:/GitHub/TestActivity//jni/exec-mmap/mongolite.h \
+ D:/GitHub/TestActivity//jni/exec-mmap/help.h \
  D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/android/log.h \
- D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/sys/mman.h \
+ D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/errno.h \
  D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/sys/cdefs.h \
  D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/sys/cdefs_elf.h \
  D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/android/api-level.h \
+ D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/linux/errno.h \
+ D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/asm/errno.h \
+ D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/asm-generic/errno.h \
+ D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/asm-generic/errno-base.h \
+ D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/sys/mman.h \
  D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/sys/types.h \
  D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/stdint.h \
  D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/sys/_types.h \
@@ -24,6 +29,13 @@ D:/android_project/TestActivity//obj/local/armeabi-v7a/objs/mongo/exec-mmap/mong
  D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/asm-generic/mman.h \
  D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/asm-generic/mman-common.h \
  D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/asm/page.h \
+ D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/stdio.h \
+ D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/stdlib.h \
+ D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/string.h \
+ D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/malloc.h \
+ D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/alloca.h \
+ D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/strings.h \
+ D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/memory.h \
  D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/unistd.h \
  D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/sys/select.h \
  D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/sys/time.h \
@@ -35,8 +47,6 @@ D:/android_project/TestActivity//obj/local/armeabi-v7a/objs/mongo/exec-mmap/mong
  D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/machine/internal_types.h \
  D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/machine/limits.h \
  D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/sys/syslimits.h \
- D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/string.h \
- D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/malloc.h \
  D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/asm/signal.h \
  D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/asm-generic/signal.h \
  D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/asm/siginfo.h \
@@ -52,19 +62,29 @@ D:/android_project/TestActivity//obj/local/armeabi-v7a/objs/mongo/exec-mmap/mong
  D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/asm/fcntl.h \
  D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/asm-generic/fcntl.h
 
-D:/android_project/TestActivity//jni/exec-mmap/mongolite.h:
+D:/GitHub/TestActivity//jni/exec-mmap/mongolite.h:
 
-D:/android_project/TestActivity//jni/exec-mmap/help.h:
+D:/GitHub/TestActivity//jni/exec-mmap/help.h:
 
 D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/android/log.h:
 
-D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/sys/mman.h:
+D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/errno.h:
 
 D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/sys/cdefs.h:
 
 D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/sys/cdefs_elf.h:
 
 D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/android/api-level.h:
+
+D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/linux/errno.h:
+
+D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/asm/errno.h:
+
+D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/asm-generic/errno.h:
+
+D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/asm-generic/errno-base.h:
+
+D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/sys/mman.h:
 
 D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/sys/types.h:
 
@@ -100,6 +120,20 @@ D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/asm-generic/mma
 
 D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/asm/page.h:
 
+D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/stdio.h:
+
+D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/stdlib.h:
+
+D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/string.h:
+
+D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/malloc.h:
+
+D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/alloca.h:
+
+D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/strings.h:
+
+D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/memory.h:
+
 D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/unistd.h:
 
 D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/sys/select.h:
@@ -121,10 +155,6 @@ D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/machine/interna
 D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/machine/limits.h:
 
 D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/sys/syslimits.h:
-
-D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/string.h:
-
-D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/malloc.h:
 
 D:/sdk/android-ndk-r10d/platforms/android-3/arch-arm/usr/include/asm/signal.h:
 

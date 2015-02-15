@@ -1,6 +1,6 @@
 /*
  * This file is auto-generated.  DO NOT MODIFY.
- * Original file: D:\\android_project\\TestActivity\\src\\com\\multiprocess\\service\\IStopPackageService.aidl
+ * Original file: D:\\GitHub\\TestActivity\\src\\com\\multiprocess\\service\\IStopPackageService.aidl
  */
 package com.multiprocess.service;
 public interface IStopPackageService extends android.os.IInterface
