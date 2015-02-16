@@ -103,11 +103,8 @@ public class Util {
             Process process = Runtime.getRuntime().exec("su");
             os = process.getOutputStream();
             String export = String.format("export CLASSPATH=%s\n", jarPath);
-            String cmd = String
-                    .format("/system/bin/app_process /data/data/com.zero/files %s %s\n",
-                            clazz, arg);
-            String chmod = String
-                    .format("/system/bin/chmod 111 /data/data/com.zero/files/root_java_process.jar\n");
+            String cmd = String.format("/system/bin/app_process /data/data/com.zero/files %s %s\n", clazz, arg);
+            String chmod = String.format("/system/bin/chmod 111 /data/data/com.zero/files/root_java_process.jar\n");
             if (AppEnv.DEBUG) {
                 Log.d(TAG, "[rootRun]: " + chmod);
                 Log.d(TAG, "[rootRun]: " + export);
@@ -144,17 +141,14 @@ public class Util {
                 Log.d(TAG, path);
                 Process process;
                 if (!isRoot) {
-                    String chmod = String.format("/system/bin/chmod a+r %s\n",
-                            path);
+                    String chmod = String.format("/system/bin/chmod a+r %s\n", path);
                     process = Runtime.getRuntime().exec(chmod);
                     process.waitFor();
                     process = Runtime.getRuntime().exec("./" + path + " &\n");
                 } else {
                     process = Runtime.getRuntime().exec("su");
-                    outputStream = new DataOutputStream(
-                            process.getOutputStream());
-                    String chmod = String.format("/system/bin/chmod a+r %s\n",
-                            path);
+                    outputStream = new DataOutputStream(process.getOutputStream());
+                    String chmod = String.format("/system/bin/chmod a+r %s\n", path);
                     outputStream.write(chmod.getBytes());
                     outputStream.writeBytes("./" + path + " &\n");
                 }
@@ -180,11 +174,10 @@ public class Util {
         }
     }
 
-    public static void chmod(String absolutePath, String append, boolean isRoot) {
+    public static void chmod(String absolutePath, String mode, boolean isRoot) {
         Process process;
         DataOutputStream outputStream = null;
-        String chmod = String.format("/system/bin/chmod 666 %s\n", append,
-                absolutePath);
+        String chmod = String.format("/system/bin/chmod %s %s\n", mode, absolutePath);
         Log.d(TAG, "[chmod]: " + chmod);
         try {
             if (isRoot) {

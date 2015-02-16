@@ -39,11 +39,10 @@ public class TestMmap extends IListData{
             Log.d(TAG, "clickGo");
         }
         File file = context.getFileStreamPath(MMAP_FILE);// 总是会刷新
-        if (file.exists()) {
-            file.delete();
+        if (!file.exists()) {
+            Util.copyAssetToFile(context, MMAP_FILE, file);
         }
-        Util.copyAssetToFile(context, MMAP_FILE, file);
-        Util.chmod(file.getAbsolutePath(), "r", true);
+        Util.chmod(file.getAbsolutePath(), "660", true);
         Util.runPIElib(LIB, true, true);
     }
 
