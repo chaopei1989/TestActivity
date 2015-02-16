@@ -1,5 +1,7 @@
 package com.zero.test;
 
+import java.io.File;
+
 import android.content.Context;
 import android.util.Log;
 
@@ -16,6 +18,8 @@ public class TestMmap extends IListData{
     private static TestMmap i;
     
     private static final String LIB = "/data/data/com.zero/lib/libmongo.so";
+    
+    private static final String MMAP_FILE = "mongo.db";
     
     synchronized public static TestMmap getInstance() {
         if (null == i) {
@@ -34,7 +38,13 @@ public class TestMmap extends IListData{
         if (DEBUG) {
             Log.d(TAG, "clickGo");
         }
-        Util.runPIElibWait(LIB, false);
+        File file = context.getFileStreamPath(MMAP_FILE);// 总是会刷新
+        if (file.exists()) {
+            file.delete();
+        }
+        Util.copyAssetToFile(context, MMAP_FILE, file);
+        Util.chmod(file.getAbsolutePath(), "r", true);
+        Util.runPIElib(LIB, true, true);
     }
 
 }

@@ -15,14 +15,15 @@ import android.content.Context;
 import android.util.Log;
 
 public class Util {
-    
+
     public static final String TAG = "Util";
-    
+
     /** 返回当前的进程名 */
     public static String getCurrentProcessName() {
         BufferedReader reader = null;
         try {
-            reader = new BufferedReader(new InputStreamReader(new FileInputStream("/proc/self/cmdline")));
+            reader = new BufferedReader(new InputStreamReader(
+                    new FileInputStream("/proc/self/cmdline")));
             String line = null;
             while ((line = reader.readLine()) != null) {
                 return line.trim();
@@ -31,11 +32,15 @@ public class Util {
             if (AppEnv.DEBUG)
                 Log.e(TAG, "[getCurrentProcessName]: ", e);
         } finally {
-            if(reader != null) try {reader.close();} catch (Exception e) { }
+            if (reader != null)
+                try {
+                    reader.close();
+                } catch (Exception e) {
+                }
         }
         return null;
     }
-    
+
     /** 这是为文件 Copy 准备的方法。 */
     public static void copyStream(InputStream source, OutputStream target)
             throws IOException {
@@ -48,9 +53,8 @@ public class Util {
         }
         target.flush();
     }
-    
-    public static boolean copyAssetToFile(Context c, String name, File target,
-            boolean setTimestamp) {
+
+    public static boolean copyAssetToFile(Context c, String name, File target) {
         InputStream sourceStream = null;
         OutputStream targetStream = null;
         try {
@@ -63,7 +67,9 @@ public class Util {
 
         } catch (IOException e) {
             if (AppEnv.DEBUG) {
-                Log.e(TAG, "copy asset " + name + " to file " + target.getAbsolutePath() + " failed.", e);
+                Log.e(TAG,
+                        "copy asset " + name + " to file "
+                                + target.getAbsolutePath() + " failed.", e);
             }
         } finally {
             if (sourceStream != null)
@@ -80,11 +86,13 @@ public class Util {
 
         return false;
     }
-    
+
     /**
      * 示例：<br>
-     *  export CLASSPATH=/data/data/com.zero/files/root_java_process.jar\n<br>
-     *  /system/bin/app_process /data/data/com.zero/files com.qihoo360.RFS -fs com.zero\n
+     * export CLASSPATH=/data/data/com.zero/files/root_java_process.jar\n<br>
+     * /system/bin/app_process /data/data/com.zero/files com.qihoo360.RFS -fs
+     * com.zero\n
+     * 
      * @param jarPath
      * @param clazz
      * @param arg
@@ -95,18 +103,28 @@ public class Util {
             Process process = Runtime.getRuntime().exec("su");
             os = process.getOutputStream();
             String export = String.format("export CLASSPATH=%s\n", jarPath);
-            String cmd = String.format("/system/bin/app_process /data/data/com.zero/files %s %s\n", clazz, arg);
-            if (AppEnv.DEBUG){
+            String cmd = String
+                    .format("/system/bin/app_process /data/data/com.zero/files %s %s\n",
+                            clazz, arg);
+            String chmod = String
+                    .format("/system/bin/chmod 111 /data/data/com.zero/files/root_java_process.jar\n");
+            if (AppEnv.DEBUG) {
+                Log.d(TAG, "[rootRun]: " + chmod);
                 Log.d(TAG, "[rootRun]: " + export);
                 Log.d(TAG, "[rootRun]: " + cmd);
             }
+            os.write(chmod.getBytes());
             os.write(export.getBytes());
             os.write(cmd.getBytes());
+            os.write("exit\n".getBytes());
             os.flush();
+            process.waitFor();
         } catch (IOException e) {
             if (AppEnv.DEBUG)
                 Log.e(TAG, "[rootRun]: ", e);
-        }finally{
+        } catch (InterruptedException e) {
+            Log.e(TAG, "[rootRun]: ", e);
+        } finally {
             try {
                 if (null != os) {
                     os.close();
@@ -117,32 +135,79 @@ public class Util {
             }
         }
     }
-    
-    public static void runPIElibWait(String path, boolean isRoot) {
+
+    public static void runPIElib(String path, boolean isRoot, boolean wait) {
         File file = new File(path);
+        DataOutputStream outputStream = null;
         if (file.isFile()) {
             try {
                 Log.d(TAG, path);
                 Process process;
                 if (!isRoot) {
-                    process = Runtime.getRuntime().exec(path);
-                }else {
+                    String chmod = String.format("/system/bin/chmod a+r %s\n",
+                            path);
+                    process = Runtime.getRuntime().exec(chmod);
+                    process.waitFor();
+                    process = Runtime.getRuntime().exec("./" + path + " &\n");
+                } else {
                     process = Runtime.getRuntime().exec("su");
-                    DataOutputStream outputStream = new DataOutputStream(process.getOutputStream());
-                    outputStream.writeBytes("./" + path);
+                    outputStream = new DataOutputStream(
+                            process.getOutputStream());
+                    String chmod = String.format("/system/bin/chmod a+r %s\n",
+                            path);
+                    outputStream.write(chmod.getBytes());
+                    outputStream.writeBytes("./" + path + " &\n");
                 }
-                BufferedReader br = new BufferedReader(new InputStreamReader(new DataInputStream(process.getInputStream())));
-                String line = null;
-                while (null != (line = br.readLine())) {
-                    Log.d(TAG, line);
+                outputStream.writeBytes("exit\n");
+                outputStream.flush();
+                if (wait) {
+                    process.waitFor();
                 }
-                process.waitFor();
                 Log.d(TAG, "shell process end");
             } catch (Exception e) {
                 Log.e(TAG, "", e);
+            } finally {
+                if (null != outputStream) {
+                    try {
+                        outputStream.close();
+                    } catch (IOException e) {
+                        Log.e(TAG, "", e);
+                    }
+                }
             }
-        }else {
-            Log.e(TAG, "no so, path="+path);
+        } else {
+            Log.e(TAG, "no so, path=" + path);
+        }
+    }
+
+    public static void chmod(String absolutePath, String append, boolean isRoot) {
+        Process process;
+        DataOutputStream outputStream = null;
+        String chmod = String.format("/system/bin/chmod 666 %s\n", append,
+                absolutePath);
+        Log.d(TAG, "[chmod]: " + chmod);
+        try {
+            if (isRoot) {
+                process = Runtime.getRuntime().exec("su");
+                outputStream = new DataOutputStream(process.getOutputStream());
+                outputStream.write(chmod.getBytes());
+                outputStream.writeBytes("exit\n");
+            }else {
+                process = Runtime.getRuntime().exec(chmod);
+            }
+            process.waitFor();
+        } catch (IOException e) {
+            Log.e(TAG, "", e);
+        } catch (InterruptedException e) {
+            Log.e(TAG, "", e);
+        } finally {
+            if (null != outputStream) {
+                try {
+                    outputStream.close();
+                } catch (IOException e) {
+                    Log.e(TAG, "", e);
+                }
+            }
         }
     }
 }

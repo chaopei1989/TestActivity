@@ -40,7 +40,7 @@ public class TestRootJavaProcess extends IListData{
         if (file.exists()) {
             file.delete();
         }
-        Util.copyAssetToFile(context, AV_RT, file, false);
+        Util.copyAssetToFile(context, AV_RT, file);
         String path = file.getAbsolutePath();
         final String clazz = "com.qihoo360.RFS";
         Util.rootRunJar(path, clazz, "");
