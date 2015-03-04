@@ -21,14 +21,16 @@ public class MainActivity extends Activity implements OnItemClickListener, OnIte
 
     private static final String TAG = "MainActivity";
     
+    private static final boolean Life_Debug = false;
+    
     ListView list;
     BaseAdapter adapter;
     List<IListData> datas;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        if (AppEnv.DEBUG) {
-            Log.d(TAG, "onCreate");
+        if (Life_Debug) {
+            Log.d(TAG, "onCreate", new Throwable());
         }
         setContentView(R.layout.activity_main);
         initData();
@@ -42,6 +44,55 @@ public class MainActivity extends Activity implements OnItemClickListener, OnIte
             e.printStackTrace();
         }*/
     }
+
+    @Override
+    protected void onStart() {
+        if (Life_Debug) {
+            Log.d(TAG, "onStart", new Throwable());
+        }
+        super.onStart();
+    }
+
+    @Override
+    protected void onRestart() {
+        if (Life_Debug) {
+            Log.d(TAG, "onRestart", new Throwable());
+        }
+        super.onRestart();
+    }
+
+    @Override
+    protected void onResume() {
+        if (Life_Debug) {
+            Log.d(TAG, "onResume", new Throwable());
+        }
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        if (Life_Debug) {
+            Log.d(TAG, "onPause", new Throwable());
+        }
+        super.onPause();
+    }
+
+    @Override
+    protected void onStop() {
+        if (Life_Debug) {
+            Log.d(TAG, "onStop", new Throwable());
+        }
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (Life_Debug) {
+            Log.d(TAG, "onDestroy", new Throwable());
+        }
+        super.onDestroy();
+    }
+
 
     private void initData() {
         datas = AMain.testList();

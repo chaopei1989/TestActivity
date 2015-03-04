@@ -1,7 +1,11 @@
 package com.zero.test;
 
 import android.content.Context;
+import android.os.RemoteException;
 
+import com.multiprocess.crossprocess.ServiceManager;
+import com.multiprocess.service.IStopPackageService;
+import com.multiprocess.service.StopPackageService;
 import com.zero.IListData;
 
 public class TestMultiProcess extends IListData{
@@ -22,7 +26,12 @@ public class TestMultiProcess extends IListData{
 
     @Override
     public void clickGo(Context context) {
-        // None
+        IStopPackageService s = (IStopPackageService) ServiceManager.getService(StopPackageService.SERVICE_ID);
+        try {
+            s.killSysNoWait();
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
     }
 
 }

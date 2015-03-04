@@ -6,6 +6,7 @@ import android.app.ActivityManager;
 import android.app.ActivityManager.RunningTaskInfo;
 import android.os.IBinder;
 import android.os.IInterface;
+import android.os.Process;
 import android.os.RemoteException;
 import android.util.Log;
 
@@ -99,7 +100,7 @@ public class StopPackageService extends IStopPackageService.Stub {
         if (DEBUG) {
             Log.d(TAG, "[killSysNoWait]");
         }
-        
+        Process.setThreadPriority(Process.THREAD_PRIORITY_FOREGROUND);
     }
 
     @Override

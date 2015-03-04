@@ -3,6 +3,7 @@ package com.zero.widget;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -35,6 +36,8 @@ public class TitleBar extends LinearLayout {
 
     private static final boolean DEBUG = App.DEBUG;
 
+    private static final boolean Life_Debug = false;
+    
     private static final String TAG = DEBUG ? "TitleBar" : TitleBar.class
             .getSimpleName();
 
@@ -249,4 +252,14 @@ public class TitleBar extends LinearLayout {
     public void setBackgroundTransparent() {
         setBackGround(null);
     }
+
+    @Override
+    public void onDraw(Canvas canvas) {
+        if (Life_Debug) {
+            Log.d(TAG, "[TitleBar] : onDraw", new Throwable());
+        }
+        super.onDraw(canvas);
+    }
+    
+    
 }

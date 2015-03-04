@@ -9,7 +9,8 @@
     <com.zero.widget.TitleBar
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        av:av_titleText="Zzzz · Test Main" />
+        av:av_titleText="Zzzz · Test Main"
+        android:background="#00000000" />
 
     <ListView
         style="@style/av_listview"

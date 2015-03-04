@@ -13,6 +13,7 @@ public class AMain {
         install(TestJni.getInstance());
         install(TestRootJavaProcess.getInstance());
         install(TestMmap.getInstance());
+        install(TestProcessPriority.getInstance());
     }
     
     public static List<IListData> testList() {
