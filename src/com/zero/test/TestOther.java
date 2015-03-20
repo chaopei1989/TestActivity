@@ -99,3 +99,52 @@ public class TestOther extends Activity{
         }
     }*/
 }
+    /*public class MessageQueue {
+        Message mMessages;
+        
+        private native void nativeInit();
+        private native void nativeDestroy();
+        private native void nativePollOnce(int ptr, int timeoutMillis);
+        private native void nativeWake(int ptr);
+    
+        MessageQueue() {
+            nativeInit();
+        }
+        
+        final Message next() {
+            ......
+            for (;;) {
+                ......
+                
+                nativePollOnce(mPtr, nextPollTimeoutMillis);
+    
+                synchronized (this) {
+                    // Try to retrieve the next message.  Return if found.
+                    final long now = SystemClock.uptimeMillis();
+                    final Message msg = mMessages;
+                    if (msg != null) {
+                        final long when = msg.when;
+                        if (now >= when) {
+                            ......
+                            return msg;
+                        } else {
+                            nextPollTimeoutMillis = (int) Math.min(when - now, Integer.MAX_VALUE);
+                        }
+                    } else {
+                        nextPollTimeoutMillis = -1;
+                    }
+                    ......
+                }
+                ......
+            }
+        }
+    
+        final boolean enqueueMessage(Message msg, long when) {
+            ......
+        }
+    
+        final boolean removeMessages(Handler h, int what, Object object,
+                boolean doRemove) {
+            ......
+        }
+    }*/

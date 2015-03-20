@@ -14,6 +14,9 @@ public class AMain {
         install(TestRootJavaProcess.getInstance());
         install(TestMmap.getInstance());
         install(TestProcessPriority.getInstance());
+        install(TestObscurdView.getInstance());
+        install(TestShareToApp.getInstance());
+        install(TestDefaultApp.getInstance());
     }
     
     public static List<IListData> testList() {

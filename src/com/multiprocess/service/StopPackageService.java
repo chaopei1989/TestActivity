@@ -1,9 +1,5 @@
 package com.multiprocess.service;
 
-import java.util.List;
-
-import android.app.ActivityManager;
-import android.app.ActivityManager.RunningTaskInfo;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Process;

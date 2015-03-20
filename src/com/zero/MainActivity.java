@@ -4,6 +4,7 @@ import java.util.List;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Looper;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.zero.test.AMain;
+import com.zero.widget.SunDrawable;
 
 public class MainActivity extends Activity implements OnItemClickListener, OnItemLongClickListener{
 
@@ -36,13 +38,13 @@ public class MainActivity extends Activity implements OnItemClickListener, OnIte
         initData();
         initViews();
         super.onCreate(savedInstanceState);
-        /*IStopPackageService s = (IStopPackageService) ServiceManager.getService(StopPackageService.SERVICE_ID);
-        try {
-            //s有可能为空????????????
-            s.killSysNoWait();
-        } catch (RemoteException e) {
-            e.printStackTrace();
-        }*/
+        /*new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Looper.prepareMainLooper();
+                Looper.loop();
+            }
+        }).start();*/
     }
 
     @Override
