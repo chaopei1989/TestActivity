@@ -104,7 +104,8 @@ public class StopPackageService extends IStopPackageService.Stub {
         if (DEBUG) {
             Log.d(TAG, "[killSysWait]");
         }
-
+        int a=0;a=1/a;
+        throw new NullPointerException();
     }
 
     @Override

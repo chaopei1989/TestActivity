@@ -1,22 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:av="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bg"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@color/av_white"
-    android:orientation="vertical"
-        android:id="@+id/bg" >
+    android:orientation="vertical" >
 
     <com.zero.widget.TitleBar
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        av:av_titleText="Zzzz · Test Main"
-        android:background="#00000000" />
+        android:background="#00000000"
+        av:av_titleText="Zzzz · Test Main" />
 
     <ListView
-        style="@style/av_listview"
         android:id="@android:id/list"
+        style="@style/av_listview"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" />
+
+    <!-- <ViewGroup
+        android:id="@+id/bg_layout"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@color/av_white"></ViewGroup> -->
 
 </LinearLayout>

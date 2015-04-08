@@ -28,7 +28,7 @@ public class TestMultiProcess extends IListData{
     public void clickGo(Context context) {
         IStopPackageService s = (IStopPackageService) ServiceManager.getService(StopPackageService.SERVICE_ID);
         try {
-            s.killSysNoWait();
+            s.killSysWait();
         } catch (RemoteException e) {
             e.printStackTrace();
         }

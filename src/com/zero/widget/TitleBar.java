@@ -260,6 +260,37 @@ public class TitleBar extends LinearLayout {
         }
         super.onDraw(canvas);
     }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        if (DEBUG) {
+            Log.d(TAG, "onMeasure", new Throwable());
+        }
+    }
+
+    @Override
+    public void draw(Canvas canvas) {
+        super.draw(canvas);
+        if (DEBUG) {
+//            Log.d(TAG, "draw", new Throwable());
+        }
+    }
     
+    @Override
+    protected void onLayout(boolean changed, int l, int t, int r, int b) {
+        super.onLayout(changed, l, t, r, b);
+        if (DEBUG) {
+            Log.d(TAG, "onLayout", new Throwable());
+        }
+    }
+    
+    @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        if (DEBUG) {
+            Log.d(TAG, "onAttachedToWindow", new Throwable());
+        }
+    }
     
 }

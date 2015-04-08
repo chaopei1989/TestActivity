@@ -93,3 +93,30 @@ LOCAL_MODULE_TAGS := debug,eng
 LOCAL_PRELINK_MODULE := false
 include $(BUILD_EXECUTABLE)
 
+
+
+
+
+ifeq ($(TARGET_BUILD_APPS),)
+
+LOCAL_PATH:= $(call my-dir)
+include $(CLEAR_VARS)
+
+LOCAL_SRC_FILES := \
+	aidl_language_l.l \
+	aidl_language_y.y \
+	aidl.cpp \
+	aidl_language.cpp \
+	options.cpp \
+	search_path.cpp \
+	AST.cpp \
+	Type.cpp \
+	generate_java.cpp \
+	generate_java_binder.cpp \
+	generate_java_rpc.cpp
+
+LOCAL_CFLAGS := -g
+LOCAL_MODULE := aidl
+
+include $(BUILD_HOST_EXECUTABLE)
+endif # TARGET_BUILD_APPS

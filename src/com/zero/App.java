@@ -53,6 +53,7 @@ public class App extends Application {
     private void init() {
         sInstance = this;
         initProcessType();
+        CrashHandler.getInstance(this).init();
     }
 
     private void initProcessType() {

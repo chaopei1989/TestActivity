@@ -17,6 +17,9 @@ public class AMain {
         install(TestObscurdView.getInstance());
         install(TestShareToApp.getInstance());
         install(TestDefaultApp.getInstance());
+        install(TestHandler.getInstance());
+        install(TestInflate.getInstance());
+        install(TestTopActivity.getInstance());
     }
     
     public static List<IListData> testList() {

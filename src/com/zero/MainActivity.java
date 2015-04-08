@@ -4,7 +4,6 @@ import java.util.List;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.os.Looper;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,7 +16,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.zero.test.AMain;
-import com.zero.widget.SunDrawable;
 
 public class MainActivity extends Activity implements OnItemClickListener, OnItemLongClickListener{
 
@@ -28,6 +26,8 @@ public class MainActivity extends Activity implements OnItemClickListener, OnIte
     ListView list;
     BaseAdapter adapter;
     List<IListData> datas;
+    
+//    ViewGroup bg_layout;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,6 +102,7 @@ public class MainActivity extends Activity implements OnItemClickListener, OnIte
 
     private void initViews() {
         list = (ListView) findViewById(android.R.id.list);
+//        bg_layout = (ViewGroup) findViewById(R.id.bg_layout);
         adapter = new TestAdapter();
         initHeader();
         initFooter();
@@ -137,7 +138,7 @@ public class MainActivity extends Activity implements OnItemClickListener, OnIte
         public View getView(int position, View convertView, ViewGroup parent) {
             Holder holder;
             if (convertView == null || null == convertView.getTag()) {
-                convertView = LayoutInflater.from(MainActivity.this).inflate(R.layout.view_list_item, null);
+                convertView = LayoutInflater.from(MainActivity.this).inflate(R.layout.view_list_item, list, false);
                 holder = new Holder();
                 holder.title = (TextView) convertView.findViewById(R.id.title);
                 holder.desc = (TextView) convertView.findViewById(R.id.desc);
