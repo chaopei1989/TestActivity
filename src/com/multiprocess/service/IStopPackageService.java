@@ -1,14 +1,12 @@
 /*
  * This file is auto-generated.  DO NOT MODIFY.
- * Original file: D:\\GitHub\\TestActivity\\src\\com\\multiprocess\\service\\IStopPackageService.aidl
+ * Original file: IStopPackageService.aidl
  */
 package com.multiprocess.service;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.io.Writer;
-
-import android.os.BadParcelableException;
 
 public interface IStopPackageService extends android.os.IInterface {
     /** Local-side IPC implementation stub class. */
@@ -100,52 +98,24 @@ public interface IStopPackageService extends android.os.IInterface {
                     this.killUserNoWait();
                     return true;
                 }
-                case TRANSACTION_killUserWait: {
-                    data.enforceInterface(DESCRIPTOR);
-                    this.killUserWait();
-                    reply.writeNoException();
-                    return true;
-                }
                 }
             } catch (RuntimeException e) {
-                e.printStackTrace();
-                
-                int err_code = 0;
-                if (e instanceof SecurityException) {
-                    err_code = -1;
-                } else if (e instanceof BadParcelableException) {
-                    err_code = -2;
-                } else if (e instanceof IllegalArgumentException) {
-                    err_code = -3;
-                } else if (e instanceof NullPointerException) {
-                    err_code = -4;
-                } else if (e instanceof IllegalStateException) {
-                    err_code = -5;
-                }
-
                 reply.setDataPosition(0);
-                if (0 < err_code) {
-                    reply.writeInt(err_code);
-                } else {
-                    reply.writeInt(-1);
+                reply.writeInt(-3);
+                StringWriter sw = new StringWriter();
+                PrintWriter pw = new PrintWriter(sw);
+                e.printStackTrace(pw);
+                String stack = sw.toString();
+                try {
+                    sw.close();
+                    pw.close();
+                } catch (IOException e1) {
                 }
-                reply.writeString(generateExceptionMsg(err_code, e));
+                reply.writeString(stack);
                 return true;
             }
+
             return super.onTransact(code, data, reply, flags);
-        }
-        
-        private String generateExceptionMsg(int err_code, RuntimeException e){
-            Writer info = new StringWriter();
-            PrintWriter printWriter = new PrintWriter(info);
-            e.printStackTrace(printWriter);
-            String result = info.toString();
-            printWriter.close();
-            if (0 < err_code) {
-                return result;
-            } else {
-                return /*e.getMessage() +*/ result;
-            }
         }
 
         private static class Proxy implements
@@ -265,21 +235,6 @@ public interface IStopPackageService extends android.os.IInterface {
                     _data.recycle();
                 }
             }
-
-            @Override
-            public void killUserWait() throws android.os.RemoteException {
-                android.os.Parcel _data = android.os.Parcel.obtain();
-                android.os.Parcel _reply = android.os.Parcel.obtain();
-                try {
-                    _data.writeInterfaceToken(DESCRIPTOR);
-                    mRemote.transact(Stub.TRANSACTION_killUserWait, _data,
-                            _reply, 0);
-                    _reply.readException();
-                } finally {
-                    _reply.recycle();
-                    _data.recycle();
-                }
-            }
         }
 
         static final int TRANSACTION_killNoWait = (android.os.IBinder.FIRST_CALL_TRANSACTION + 0);
@@ -289,7 +244,6 @@ public interface IStopPackageService extends android.os.IInterface {
         static final int TRANSACTION_killSysNoWait = (android.os.IBinder.FIRST_CALL_TRANSACTION + 4);
         static final int TRANSACTION_killSysWait = (android.os.IBinder.FIRST_CALL_TRANSACTION + 5);
         static final int TRANSACTION_killUserNoWait = (android.os.IBinder.FIRST_CALL_TRANSACTION + 6);
-        static final int TRANSACTION_killUserWait = (android.os.IBinder.FIRST_CALL_TRANSACTION + 7);
     }
 
     public void killNoWait(java.lang.String name)
@@ -309,6 +263,4 @@ public interface IStopPackageService extends android.os.IInterface {
     public void killSysWait() throws android.os.RemoteException;
 
     public void killUserNoWait() throws android.os.RemoteException;
-
-    public void killUserWait() throws android.os.RemoteException;
 }

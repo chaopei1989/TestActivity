@@ -1,0 +1,7 @@
+package com.multiprocess.service;
+
+
+interface ITransactionLarge {
+    oneway void transactLargeData(in byte[] data);
+    byte[] getTransactLargeData();
+}

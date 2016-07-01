@@ -17,6 +17,10 @@ public:
     Variable* transact_reply;
     Variable* transact_flags;
     SwitchStatement* transact_switch;
+    //Zero
+    TryStatement* transact_try;
+    CatchStatement* transact_catch;
+    Variable* transact_runtime_exception;
 private:
     void make_as_interface(Type* interfaceType);
 };
@@ -77,9 +81,66 @@ StubClass::StubClass(Type* type, Type* interfaceType)
         onTransact->statements = new StatementBlock;
         onTransact->exceptions.push_back(REMOTE_EXCEPTION_TYPE);
     this->elements.push_back(onTransact);
-    this->transact_switch = new SwitchStatement(this->transact_code);
 
-    onTransact->statements->Add(this->transact_switch);
+    //Zero
+    this->transact_try = new TryStatement();
+    this->transact_switch = new SwitchStatement(this->transact_code);
+    this->transact_try->statements->Add(this->transact_switch);
+
+    onTransact->statements->Add(this->transact_try);
+
+    this->transact_runtime_exception = new Variable(RUNTIME_EXCEPTION_TYPE, "e");
+    this->transact_catch = new CatchStatement(transact_runtime_exception);
+
+    // catch 里添加函数调用
+    // e.printStackTrace()
+    this->transact_catch->statements->Add(new MethodCall(this->transact_runtime_exception, "printStackTrace"));
+    // reply.setDataPosition(0);
+    Variable* pos = new Variable(INT_TYPE, "pos");
+    VariableDeclaration* posVd = new VariableDeclaration(pos, new LiteralExpression("0"));
+    this->transact_catch->statements->Add(posVd);
+    this->transact_catch->statements->Add(new MethodCall(this->transact_reply, "setDataPosition", 1, pos));
+    // reply.writeInt(-3);
+    Variable* errcode = new Variable(INT_TYPE, "errcode");
+    VariableDeclaration* errcodeVd = new VariableDeclaration(errcode, new LiteralExpression("-3"));
+    this->transact_catch->statements->Add(errcodeVd);
+    this->transact_catch->statements->Add(new MethodCall(this->transact_reply, "writeInt", 1, errcode));
+    // StringWriter sw = new StringWriter();
+    Variable *sw = new Variable(SW_TYPE, "sw");
+    NewExpression* sw_ne = new NewExpression(SW_TYPE);
+    VariableDeclaration* swVd = new VariableDeclaration(sw, sw_ne);
+    this->transact_catch->statements->Add(swVd);
+    // PrintWriter pw = new PrintWriter(sw);
+    Variable *pw = new Variable(PW_TYPE, "pw");
+    NewExpression* pw_ne = new NewExpression(PW_TYPE);
+    pw_ne->arguments.push_back(sw);
+    VariableDeclaration* pwVd = new VariableDeclaration(pw, pw_ne);
+    this->transact_catch->statements->Add(pwVd);
+    // e.printStackTrace(pw);
+    this->transact_catch->statements->Add(new MethodCall(this->transact_runtime_exception, "printStackTrace", 1, pw));
+    // String stack = sw.toString();
+    Variable *stack = new Variable(STRING_TYPE, "stack");
+    MethodCall* sw_tostring = new MethodCall(sw, "toString");
+    VariableDeclaration* stackVd = new VariableDeclaration(stack, sw_tostring);
+    this->transact_catch->statements->Add(stackVd);
+    //    try {
+    //        sw.close();
+    //        pw.close();
+    //    } catch (IOException e1) {
+    //    }
+    TryStatement* print_try = new TryStatement();
+    print_try->statements->Add(new MethodCall(sw, "close"));
+    print_try->statements->Add(new MethodCall(pw, "close"));
+    CatchStatement* print_catch = new CatchStatement(new Variable(IO_EXCEPTION_TYPE, "e1"));
+    this->transact_catch->statements->Add(print_try);
+    this->transact_catch->statements->Add(print_catch);
+    // reply.writeString(stack);
+    this->transact_catch->statements->Add(new MethodCall(this->transact_reply, "writeString", 1, stack));
+    // return true;
+    this->transact_catch->statements->Add(new ReturnStatement(TRUE_VALUE));
+
+    onTransact->statements->Add(this->transact_catch);
+
     MethodCall* superCall = new MethodCall(SUPER_VALUE, "onTransact", 4,
                                     this->transact_code, this->transact_data,
                                     this->transact_reply, this->transact_flags);

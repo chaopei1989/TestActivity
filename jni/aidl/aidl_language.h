@@ -1,6 +1,6 @@
 #ifndef DEVICE_TOOLS_AIDL_AIDL_LANGUAGE_H
 #define DEVICE_TOOLS_AIDL_AIDL_LANGUAGE_H
-
+#include <stdbool.h>
 
 typedef enum {
     NO_EXTRA_TEXT = 0,
@@ -153,7 +153,7 @@ extern int g_error;
 
 // the name of the file we're currently parsing
 extern char const* g_currentFilename;
-
+//
 // the package name for our current file
 extern char const* g_currentPackage;
 

@@ -8,6 +8,9 @@ import android.os.Process;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.euler.test.A;
+import com.qihoo360.sedroid.Sedroid;
+
 public class App extends Application {
 
     public static final boolean DEBUG = AppEnv.DEBUG;
@@ -54,6 +57,10 @@ public class App extends Application {
         sInstance = this;
         initProcessType();
         CrashHandler.getInstance(this).init();
+        //Sedroid patch初始化
+//        if (Sedroid.getInstance().setup(this)) {
+//            Log.d(TAG, "Sedroid setup done.");
+//        }
     }
 
     private void initProcessType() {
@@ -85,7 +92,7 @@ public class App extends Application {
      * @param v
      */
     private void changeProcessName(String v) {
-        android.os.Process.setArgV0(v);
+//        android.os.Process.setArgV0(v);
         
     }
     
@@ -104,7 +111,19 @@ public class App extends Application {
                 }
             }
         } else {
-            android.ddm.DdmHandleAppName.setAppName("orez.moc");
+//            android.ddm.DdmHandleAppName.setAppName("orez.moc");
         }
     }
+    
+    @Override
+    public void onLowMemory() {
+        
+        super.onLowMemory();
+    }
+    
+//    @Override
+//    public void onTrimMemory(int level) {
+//        // TODO Auto-generated method stub
+//        super.onTrimMemory(level);
+//    }
 }

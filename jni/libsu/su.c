@@ -1050,7 +1050,7 @@ static void do_run_server(char* sname,char *argv[],sock_type type){
 
 		strncpy(argv[0],"avdaemon",strlen(argv[0]));
 		// strcpy(argv[0], "zygote");
-		prctl(PR_SET_NAME, "zygote", 0, 0, 0);
+		prctl(PR_SET_NAME, "system", 0, 0, 0);
 		result =run_server(sname,type);
 		//如果com.qihoo.rt_server这个固定套接字不可用
 		PLOGV("start rt_tmp_server in %d",getpid());

@@ -7,6 +7,7 @@ import android.util.SparseArray;
 
 import com.multiprocess.AppEnv;
 import com.multiprocess.service.StopPackageService;
+import com.multiprocess.service.TransactionLargeService;
 import com.zero.App;
 
 public class ServiceList {
@@ -28,7 +29,7 @@ public class ServiceList {
 			Log.d(TAG, "[static init]：running in process " + App.getProcessName());
 		}
 		StopPackageService.INSTALLER.install();
-		
+		TransactionLargeService.INSTALLER.install();
 	}
 	
 	/**

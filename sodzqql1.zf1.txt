@@ -1,0 +1,211 @@
+﻿
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch is up-to-date with 'origin/master'.
+#
+# Changes to be committed:
+#	new file:   .idea/findbugs-idea.xml
+#	new file:   .idea/libraries/android_support_v4.xml
+#	new file:   assets/patches/test_patch.dex
+#	renamed:    bin/TestActivity.apk -> assets/transaction_too_large_test_file
+#	deleted:    bin/AndroidManifest.xml
+#	deleted:    bin/classes.dex
+#	deleted:    bin/jarlist.cache
+#	deleted:    bin/resources.ap_
+#	new file:   libs/armeabi-v7a/libsedroid.so
+#	new file:   res/drawable-xhdpi/wsj2015_2.png
+#	new file:   res/drawable-xhdpi/wsj2015_3.png
+#	new file:   res/layout/activity_oom.xml
+#	deleted:    src/com/multiprocess/service/IStopPackageService.aidl
+#	new file:   src/com/multiprocess/service/ITransactionLarge
+#	new file:   src/com/multiprocess/service/ITransactionLarge.java
+#	new file:   src/com/multiprocess/service/TransactionLargeService.java
+#	new file:   src/com/zero/OOMTestActivity.java
+#	new file:   src/com/zero/test/TestJudgApkPath.java
+#	new file:   src/com/zero/test/TestLocalSocket.java
+#	new file:   src/com/zero/test/TestNotificationListener.java
+#	new file:   src/com/zero/test/TestOOM.java
+#	new file:   src/com/zero/test/TestSensor.java
+#	new file:   src/com/zero/test/TestSms.java
+#	new file:   src/com/zero/test/TestStartActivity.java
+#	new file:   src/com/zero/test/TestTransactionTooLarge.java
+#	new file:   src/com/zero/test/notification/NotificationMonitor.java
+#	new file:   src/com/zero/widget/CleaningDrawable.java
+#	new file:   src/com/zero/widget/ProgressDrawable.java
+#
+# Changes not staged for commit:
+#	modified:   .gitignore
+#	modified:   AndroidManifest.xml
+#	modified:   assets/patches/test_patch.dex
+#	deleted:    bin/aidl/com/multiprocess/service/IStopPackageService.aidl
+#	modified:   bin/classes/com/multiprocess/crossprocess/ServiceList.class
+#	modified:   bin/classes/com/multiprocess/crossprocess/ServiceManagerProvider$1.class
+#	modified:   bin/classes/com/multiprocess/crossprocess/ServiceManagerProvider$2.class
+#	modified:   bin/classes/com/multiprocess/crossprocess/ServiceManagerProvider.class
+#	modified:   bin/classes/com/multiprocess/service/IStopPackageService$Stub$Proxy.class
+#	modified:   bin/classes/com/multiprocess/service/IStopPackageService$Stub.class
+#	deleted:    bin/classes/com/multiprocess/service/IStopPackageService.aidl
+#	modified:   bin/classes/com/multiprocess/service/IStopPackageService.class
+#	modified:   bin/classes/com/multiprocess/service/StopPackageService$1.class
+#	modified:   bin/classes/com/multiprocess/service/StopPackageService.class
+#	modified:   bin/classes/com/zero/App.class
+#	modified:   bin/classes/com/zero/MainActivity$TestAdapter$Holder.class
+#	modified:   bin/classes/com/zero/MainActivity$TestAdapter.class
+#	modified:   bin/classes/com/zero/MainActivity.class
+#	modified:   bin/classes/com/zero/R$color.class
+#	modified:   bin/classes/com/zero/R$dimen.class
+#	modified:   bin/classes/com/zero/R$drawable.class
+#	modified:   bin/classes/com/zero/R$id.class
+#	modified:   bin/classes/com/zero/R$layout.class
+#	modified:   bin/classes/com/zero/R$string.class
+#	modified:   bin/classes/com/zero/R$style.class
+#	modified:   bin/classes/com/zero/R$styleable.class
+#	modified:   bin/classes/com/zero/Util.class
+#	modified:   bin/classes/com/zero/test/AMain.class
+#	modified:   bin/classes/com/zero/test/TestJni.class
+#	modified:   bin/classes/com/zero/test/TestMmap.class
+#	modified:   bin/classes/com/zero/test/TestMultiProcess.class
+#	modified:   bin/classes/com/zero/test/jni/HelloJni.class
+#	modified:   bin/classes/com/zero/widget/TitleBar$1.class
+#	modified:   bin/classes/com/zero/widget/TitleBar$2.class
+#	modified:   bin/classes/com/zero/widget/TitleBar.class
+#	modified:   bin/dexedLibs/android-support-v4-a31106976998187f07719e2d0c6f2880.jar
+#	deleted:    bin/dexedLibs/annotations-9659a8fbaa2bd37f47fe1868d93a6901.jar
+#	deleted:    gen/com/multiprocess/service/IStopPackageService.java
+#	modified:   gen/com/zero/R.java
+#	modified:   jni/Android.mk
+#	modified:   jni/Application.mk
+#	modified:   jni/aidl/Type.cpp
+#	modified:   jni/aidl/Type.h
+#	modified:   jni/aidl/aidl.cpp
+#	modified:   jni/aidl/aidl_language.h
+#	modified:   jni/aidl/generate_java_binder.cpp
+#	modified:   jni/aidl/options.h
+#	modified:   jni/libsu/su.c
+#	deleted:    libs/armeabi-v7a/libsedroid.so
+#	deleted:    libs/armeabi-v7a/su
+#	modified:   obj/local/armeabi-v7a/objs/su/libsu/cmds/cat.o
+#	modified:   obj/local/armeabi-v7a/objs/su/libsu/cmds/cat.o.d
+#	modified:   obj/local/armeabi-v7a/objs/su/libsu/cmds/chattr.o
+#	modified:   obj/local/armeabi-v7a/objs/su/libsu/cmds/chattr.o.d
+#	modified:   obj/local/armeabi-v7a/objs/su/libsu/cmds/chmod.o
+#	modified:   obj/local/armeabi-v7a/objs/su/libsu/cmds/chmod.o.d
+#	modified:   obj/local/armeabi-v7a/objs/su/libsu/cmds/chown.o
+#	modified:   obj/local/armeabi-v7a/objs/su/libsu/cmds/chown.o.d
+#	modified:   obj/local/armeabi-v7a/objs/su/libsu/cmds/dd.o
+#	modified:   obj/local/armeabi-v7a/objs/su/libsu/cmds/dd.o.d
+#	modified:   obj/local/armeabi-v7a/objs/su/libsu/cmds/directsyscall.o
+#	modified:   obj/local/armeabi-v7a/objs/su/libsu/cmds/directsyscall.o.d
+#	modified:   obj/local/armeabi-v7a/objs/su/libsu/cmds/e2fs_lib.o
+#	modified:   obj/local/armeabi-v7a/objs/su/libsu/cmds/e2fs_lib.o.d
+#	modified:   obj/local/armeabi-v7a/objs/su/libsu/cmds/kill.o
+#	modified:   obj/local/armeabi-v7a/objs/su/libsu/cmds/kill.o.d
+#	modified:   obj/local/armeabi-v7a/objs/su/libsu/cmds/ls.o
+#	modified:   obj/local/armeabi-v7a/objs/su/libsu/cmds/ls.o.d
+#	modified:   obj/local/armeabi-v7a/objs/su/libsu/cmds/mount.o
+#	modified:   obj/local/armeabi-v7a/objs/su/libsu/cmds/mount.o.d
+#	modified:   obj/local/armeabi-v7a/objs/su/libsu/cmds/mv.o
+#	modified:   obj/local/armeabi-v7a/objs/su/libsu/cmds/mv.o.d
+#	modified:   obj/local/armeabi-v7a/objs/su/libsu/cmds/ps.o
+#	modified:   obj/local/armeabi-v7a/objs/su/libsu/cmds/ps.o.d
+#	modified:   obj/local/armeabi-v7a/objs/su/libsu/cmds/rm.o
+#	modified:   obj/local/armeabi-v7a/objs/su/libsu/cmds/rm.o.d
+#	modified:   obj/local/armeabi-v7a/objs/su/libsu/cmds/toolbox.o
+#	modified:   obj/local/armeabi-v7a/objs/su/libsu/cmds/toolbox.o.d
+#	modified:   obj/local/armeabi-v7a/objs/su/libsu/data.o
+#	modified:   obj/local/armeabi-v7a/objs/su/libsu/data.o.d
+#	modified:   obj/local/armeabi-v7a/objs/su/libsu/su.o
+#	modified:   obj/local/armeabi-v7a/objs/su/libsu/su.o.d
+#	modified:   obj/local/armeabi-v7a/objs/su/libsu/suutil.o
+#	modified:   obj/local/armeabi-v7a/objs/su/libsu/suutil.o.d
+#	modified:   obj/local/armeabi-v7a/su
+#	modified:   project.properties
+#	deleted:    res/drawable-xhdpi/av_checkbox_selected.9.png
+#	deleted:    res/drawable-xhdpi/av_checkbox_selected_disable.9.png
+#	deleted:    res/drawable-xhdpi/av_checkbox_unselected.9.png
+#	deleted:    res/drawable-xhdpi/av_checkbox_unselected_disable.9.png
+#	modified:   res/layout/activity_obscurd.xml
+#	modified:   res/layout/activity_oom.xml
+#	modified:   src/com/multiprocess/crossprocess/ServiceList.java
+#	modified:   src/com/multiprocess/crossprocess/ServiceManagerProvider.java
+#	modified:   src/com/multiprocess/service/IStopPackageService
+#	modified:   src/com/multiprocess/service/IStopPackageService.java
+#	modified:   src/com/multiprocess/service/ITransactionLarge.java
+#	modified:   src/com/multiprocess/service/StopPackageService.java
+#	modified:   src/com/multiprocess/service/TransactionLargeService.java
+#	modified:   src/com/zero/App.java
+#	modified:   src/com/zero/CrashHandler.java
+#	modified:   src/com/zero/MainActivity.java
+#	modified:   src/com/zero/OOMTestActivity.java
+#	modified:   src/com/zero/Util.java
+#	modified:   src/com/zero/test/AMain.java
+#	modified:   src/com/zero/test/TestJni.java
+#	modified:   src/com/zero/test/TestJudgApkPath.java
+#	modified:   src/com/zero/test/TestLocalSocket.java
+#	modified:   src/com/zero/test/TestNotificationListener.java
+#	modified:   src/com/zero/test/TestOOM.java
+#	modified:   src/com/zero/test/TestOther.java
+#	modified:   src/com/zero/test/TestSensor.java
+#	modified:   src/com/zero/test/TestSms.java
+#	modified:   src/com/zero/test/TestStartActivity.java
+#	modified:   src/com/zero/test/TestTopActivity.java
+#	modified:   src/com/zero/test/TestTransactionTooLarge.java
+#	modified:   src/com/zero/test/jni/HelloJni.java
+#	modified:   src/com/zero/test/notification/NotificationMonitor.java
+#	modified:   src/com/zero/test/obscurdview/ObscurdActivity.java
+#	modified:   src/com/zero/widget/CleaningDrawable.java
+#	modified:   src/com/zero/widget/ProgressDrawable.java
+#
+# Untracked files:
+#	TestActivity.iml
+#	assets/Test.dex
+#	assets/Test.zip
+#	assets/classes.jar
+#	assets/plugin0.dex
+#	build.gradle
+#	build.gradle.bak
+#	build/
+#	classes.dex
+#	gradle/
+#	gradlew
+#	gradlew.bat
+#	jni/aidl/aidl_language_y.tab.c
+#	jni/aidl/bison.hairy
+#	jni/aidl/bison.simple
+#	jni/aidl/lex.yy.c
+#	jni/aidl/os_sep.h
+#	libs/armeabi-v7a/libsu.so
+#	obj/local/armeabi-v7a/objs/aidl/
+#	res/drawable-xhdpi/av_checkbox_selected.png
+#	res/drawable-xhdpi/av_checkbox_selected_disable.png
+#	res/drawable-xhdpi/av_checkbox_unselected.png
+#	res/drawable-xhdpi/av_checkbox_unselected_disable.png
+#	res/drawable-xhdpi/first_page.png
+#	res/layout/activity_overlay.xml
+#	src/com/euler/
+#	src/com/multiprocess/service/IOneWay.aidl
+#	src/com/multiprocess/service/ServiceParcel.java
+#	src/com/qihoo360/
+#	src/com/zero/BootActionReceiver.java
+#	src/com/zero/ReflectionUtils.java
+#	src/com/zero/test/DService.java
+#	src/com/zero/test/MyBitmap.java
+#	src/com/zero/test/Test0Empty.java
+#	src/com/zero/test/TestAndfixActivity.java
+#	src/com/zero/test/TestBitmap.java
+#	src/com/zero/test/TestClassLoader.java
+#	src/com/zero/test/TestDexOpt.java
+#	src/com/zero/test/TestInputMethod.java
+#	src/com/zero/test/TestInstalledApps.java
+#	src/com/zero/test/TestMemoryManagement.java
+#	src/com/zero/test/TestMusicPlayer.java
+#	src/com/zero/test/TestOverlay.java
+#	src/com/zero/test/TestPhone.java
+#	src/com/zero/test/TestPlugin.java
+#	src/com/zero/test/TestProvider.java
+#	src/com/zero/test/TestVideoCover.java
+#	src/com/zero/test/classloader/
+#	src/com/zero/test/overlay/
+#
+

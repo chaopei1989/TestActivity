@@ -24,6 +24,13 @@
         android:text="change screen" />
 
     <ImageView
+        android:background="@color/av_packagereview_window_blue"
+        android:id="@+id/change_view"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        />
+
+    <ImageView
         android:id="@+id/change_alpha_img"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"

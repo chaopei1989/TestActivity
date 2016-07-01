@@ -4,6 +4,7 @@
 #include "AST.h"
 #include <string>
 #include <vector>
+#include <ctype.h>
 
 using namespace std;
 
@@ -83,6 +84,25 @@ private:
     bool m_canWriteToParcel;
     bool m_canWriteToRpcData;
     bool m_canBeOut;
+};
+
+// Zero
+class PrintWriterType : public Type
+{
+public:
+	PrintWriterType();
+};
+
+class StringWriterType : public Type
+{
+public:
+	StringWriterType();
+};
+
+class IOExceptionType : public Type
+{
+public:
+	IOExceptionType();
 };
 
 class BasicType : public Type
@@ -502,6 +522,10 @@ private:
 };
 
 extern Namespace NAMES;
+// Zero
+extern Type* PW_TYPE;
+extern Type* SW_TYPE;
+extern Type* IO_EXCEPTION_TYPE;
 
 extern Type* VOID_TYPE;
 extern Type* BOOLEAN_TYPE;

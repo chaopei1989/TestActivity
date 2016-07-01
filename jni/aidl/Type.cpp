@@ -2,6 +2,11 @@
 
 Namespace NAMES;
 
+// Zero
+Type* PW_TYPE;
+Type* SW_TYPE;
+Type* IO_EXCEPTION_TYPE;
+
 Type* VOID_TYPE;
 Type* BOOLEAN_TYPE;
 Type* BYTE_TYPE;
@@ -43,6 +48,14 @@ register_base_types()
             "XXX", "XXX", "XXX", "XXX", "XXX",
             "XXX", "XXX", "XXX", "XXX", "XXX");
     NAMES.Add(VOID_TYPE);
+
+    // Zero
+    PW_TYPE = new PrintWriterType();
+    NAMES.Add(PW_TYPE);
+    SW_TYPE = new StringWriterType();
+    NAMES.Add(SW_TYPE);
+    IO_EXCEPTION_TYPE = new IOExceptionType();
+    NAMES.Add(IO_EXCEPTION_TYPE);
 
     BOOLEAN_TYPE = new BooleanType();
     NAMES.Add(BOOLEAN_TYPE);
@@ -316,6 +329,22 @@ Type::BuildWriteToParcelFlags(int flags)
                 "PARCELABLE_WRITE_RETURN_VALUE");
     }
     return new LiteralExpression("0");
+}
+
+// ==========================zero======================================
+StringWriterType::StringWriterType()
+    :Type("java.io", "StringWriter", BUILT_IN, true, true, false)
+{
+}
+
+PrintWriterType::PrintWriterType()
+    :Type("java.io", "PrintWriter", BUILT_IN, true, true, false)
+{
+}
+
+IOExceptionType::IOExceptionType()
+    :Type("java.io", "IOException", BUILT_IN, false, false, false)
+{
 }
 
 // ================================================================

@@ -12,6 +12,7 @@ import android.os.RemoteException;
 import android.util.Log;
 
 import com.multiprocess.AppEnv;
+import com.qihoo360.sedroid.Sedroid;
 import com.zero.App;
 
 public class ServiceManagerProvider extends ContentProvider{
@@ -33,25 +34,16 @@ public class ServiceManagerProvider extends ContentProvider{
 	
 	private static final UriMatcher URI_MATCHER;
 
+    private static Bundle sExtra;
+
+    private static MatrixCursor sCursor;
+
     static {
         URI_MATCHER = new UriMatcher(UriMatcher.NO_MATCH);
 
         URI_MATCHER.addURI(AUTHORITY, PATH_SERVICE_PROVIDER, CODE_SERVICE_PROVIDER);
     }
-    
-    /**
-     * 返回给客户端的MatrixCursor
-     */
-    private static MatrixCursor sCursor = new MatrixCursor(new String[] { "s" }) {
 
-        @Override
-        public Bundle getExtras() {
-            Bundle extra = new Bundle();
-            extra.putParcelable(ServiceManager.SERVICE_MANAGER_KEY, new ServiceParcel(sServiceManagerServiceImpl));
-            return extra;
-        }
-    };
-    
     private final static IServiceManagerService.Stub sServiceManagerServiceImpl;
     
     static {
@@ -88,11 +80,43 @@ public class ServiceManagerProvider extends ContentProvider{
 	            return null;
 			}
 		};
+
+        sExtra = new Bundle();
+
+        sExtra.putParcelable(ServiceManager.SERVICE_MANAGER_KEY, new ServiceParcel(sServiceManagerServiceImpl));
+        /**
+         * 返回给客户端的MatrixCursor
+         */
+        sCursor = new MatrixCursor(new String[] { "s" }) {
+
+            @Override
+            public Bundle getExtras() {
+                Bundle extra = new Bundle();
+                extra.putParcelable(ServiceManager.SERVICE_MANAGER_KEY, new ServiceParcel(sServiceManagerServiceImpl));
+                return extra;
+            }
+        };
     }
-    
-	@Override
+
+    @Override
+    public Bundle call(String method, String arg, Bundle extras) {
+
+        if (PATH_SERVICE_PROVIDER.equals(method)) {
+            if (DEBUG) {
+                Log.d(TAG, "[call]：PATH_SERVICE_PROVIDER");
+            }
+            return sExtra;
+        } else {
+            return null;
+        }
+    }
+
+    @Override
 	public Cursor query(Uri uri, String[] projection, String selection,
 			String[] selectionArgs, String sortOrder) {
+//        if (Sedroid.getInstance().setup(getContext())) {
+//            Log.d(TAG, "Sedroid setup done.");
+//        }
 		if (DEBUG) {
             Log.d(TAG, "[query]：uri = " + (uri == null ? "null" : uri.toString()));
         }

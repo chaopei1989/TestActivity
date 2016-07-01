@@ -102,9 +102,9 @@ public class StopPackageService extends IStopPackageService.Stub {
     @Override
     public void killSysWait() throws RemoteException {
         if (DEBUG) {
-            Log.d(TAG, "[killSysWait]");
+            Log.d(TAG, "[killSysWait]", new Throwable());
         }
-        int a=0;a=1/a;
+//        int a=0;a=1/a;
         throw new NullPointerException();
     }
 
@@ -112,14 +112,6 @@ public class StopPackageService extends IStopPackageService.Stub {
     public void killUserNoWait() throws RemoteException {
         if (DEBUG) {
             Log.d(TAG, "[killUserNoWait]");
-        }
-
-    }
-
-    @Override
-    public void killUserWait() throws RemoteException {
-        if (DEBUG) {
-            Log.d(TAG, "[killUserWait]");
         }
 
     }

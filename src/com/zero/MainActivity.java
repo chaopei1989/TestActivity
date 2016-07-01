@@ -2,6 +2,7 @@ package com.zero;
 
 import java.util.List;
 
+import android.animation.TimeAnimator;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
@@ -38,6 +39,7 @@ public class MainActivity extends Activity implements OnItemClickListener, OnIte
         initData();
         initViews();
         super.onCreate(savedInstanceState);
+        Util.setTranslucent(getWindow(), true, false);
         /*new Thread(new Runnable() {
             @Override
             public void run() {

@@ -110,6 +110,7 @@ main_document_parsed(document_item_type* d)
 static void
 main_import_parsed(buffer_type* statement)
 {
+
     import_info* import = (import_info*)malloc(sizeof(import_info));
     memset(import, 0, sizeof(import_info));
     import->from = strdup(g_currentFilename);

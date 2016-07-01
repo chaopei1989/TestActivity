@@ -4,6 +4,9 @@
 #include <string.h>
 #include <string>
 #include <vector>
+#include <ctype.h>
+
+#include "os_sep.h"
 
 using namespace std;
 

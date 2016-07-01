@@ -60,6 +60,7 @@ public class TestTopActivity extends IListData implements Runnable{
             if (null != list && 0 < list.size()) {
                 RunningTaskInfo info = list.get(0);
                 Log.d(TAG, "pkg=" + info.topActivity.getPackageName());
+                Log.d(TAG, "class=" + info.topActivity.getClassName());
             }
             try {
                 Thread.sleep(1000);

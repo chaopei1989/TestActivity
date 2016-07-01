@@ -12,7 +12,7 @@ import android.content.Context;
 import android.util.Log;
 
 public class CrashHandler implements UncaughtExceptionHandler {
-    private static final boolean CRASH_HANDLER_ENABLE = true;
+    private static final boolean CRASH_HANDLER_ENABLE = false;
     public static final String TAG = "CrashHandler";
     public static final boolean DEBUG = AppEnv.DEBUG;
     private Thread.UncaughtExceptionHandler mDefaultHandler;

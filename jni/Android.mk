@@ -13,48 +13,48 @@
 # limitations under the License.
 #
 LOCAL_PATH := $(call my-dir)
-
-include $(CLEAR_VARS)
-LOCAL_MODULE := deamon
-LOCAL_CFLAGS += -fPIE
-LOCAL_LDFLAGS += -fPIE -pie
-LOCAL_SRC_FILES := exec-jni/deamon.c exec-jni/apue.c
-LOCAL_LDLIBS += -llog
-LOCAL_FORCE_STATIC_EXECUTABLE := true
-include $(BUILD_EXECUTABLE)
-
-include $(CLEAR_VARS)
-LOCAL_MODULE := mongo
-LOCAL_CFLAGS += -fPIE
-LOCAL_LDFLAGS += -fPIE -pie
-LOCAL_SRC_FILES := exec-mmap/mmain.c exec-mmap/mongolite.c
-LOCAL_LDLIBS += -llog
-LOCAL_FORCE_STATIC_EXECUTABLE := true
-include $(BUILD_EXECUTABLE)
-
-include $(CLEAR_VARS)
-LOCAL_MODULE := inject   
-LOCAL_SRC_FILES := inject-jni/inject.c
-LOCAL_LDLIBS += -L$(SYSROOT)/usr/lib -llog  
-LOCAL_FORCE_STATIC_EXECUTABLE := true
-TARGET_CFLAGS += -mthumb-interwork
-LOCAL_CFLAGS := -DHAVE_NEON=1
-LOCAL_ARM_NEON  := true
-LOCAL_SRC_FILES += inject-jni/shellcode.s.neon
-include $(BUILD_EXECUTABLE)
-
-include $(CLEAR_VARS)
-LOCAL_MODULE := test
-LOCAL_SRC_FILES := lib-jni/hello-jni.c lib-jni/extra.c
-LOCAL_LDLIBS += -llog
-include $(BUILD_SHARED_LIBRARY)
-  
-include $(CLEAR_VARS)  
-LOCAL_LDLIBS += -llog   
-LOCAL_MODULE    := injectso  
-LOCAL_SRC_FILES := injectso-jni/hello.c  
-include $(BUILD_SHARED_LIBRARY)  
-
+#
+#include $(CLEAR_VARS)
+#LOCAL_MODULE := deamon
+#LOCAL_CFLAGS += -fPIE
+#LOCAL_LDFLAGS += -fPIE -pie
+#LOCAL_SRC_FILES := exec-jni/deamon.c exec-jni/apue.c
+#LOCAL_LDLIBS += -llog
+#LOCAL_FORCE_STATIC_EXECUTABLE := true
+#include $(BUILD_EXECUTABLE)
+#
+#include $(CLEAR_VARS)
+#LOCAL_MODULE := mongo
+#LOCAL_CFLAGS += -fPIE
+#LOCAL_LDFLAGS += -fPIE -pie
+#LOCAL_SRC_FILES := exec-mmap/mmain.c exec-mmap/mongolite.c
+#LOCAL_LDLIBS += -llog
+#LOCAL_FORCE_STATIC_EXECUTABLE := true
+#include $(BUILD_EXECUTABLE)
+#
+#include $(CLEAR_VARS)
+#LOCAL_MODULE := inject   
+#LOCAL_SRC_FILES := inject-jni/inject.c
+#LOCAL_LDLIBS += -L$(SYSROOT)/usr/lib -llog  
+#LOCAL_FORCE_STATIC_EXECUTABLE := true
+#TARGET_CFLAGS += -mthumb-interwork
+#LOCAL_CFLAGS := -DHAVE_NEON=1
+#LOCAL_ARM_NEON  := true
+#LOCAL_SRC_FILES += inject-jni/shellcode.s.neon
+#include $(BUILD_EXECUTABLE)
+#
+#include $(CLEAR_VARS)
+#LOCAL_MODULE := test
+#LOCAL_SRC_FILES := lib-jni/hello-jni.c lib-jni/extra.c
+#LOCAL_LDLIBS += -llog
+#include $(BUILD_SHARED_LIBRARY)
+#  
+#include $(CLEAR_VARS)  
+#LOCAL_LDLIBS += -llog   
+#LOCAL_MODULE    := injectso  
+#LOCAL_SRC_FILES := injectso-jni/hello.c  
+#include $(BUILD_SHARED_LIBRARY)  
+#
 
 include $(CLEAR_VARS)
 TOOLS := \
@@ -94,29 +94,24 @@ LOCAL_PRELINK_MODULE := false
 include $(BUILD_EXECUTABLE)
 
 
-
-
-
-ifeq ($(TARGET_BUILD_APPS),)
-
-LOCAL_PATH:= $(call my-dir)
-include $(CLEAR_VARS)
-
-LOCAL_SRC_FILES := \
-	aidl_language_l.l \
-	aidl_language_y.y \
-	aidl.cpp \
-	aidl_language.cpp \
-	options.cpp \
-	search_path.cpp \
-	AST.cpp \
-	Type.cpp \
-	generate_java.cpp \
-	generate_java_binder.cpp \
-	generate_java_rpc.cpp
-
-LOCAL_CFLAGS := -g
-LOCAL_MODULE := aidl
-
-include $(BUILD_HOST_EXECUTABLE)
-endif # TARGET_BUILD_APPS
+#
+#
+#include $(CLEAR_VARS)
+#
+#LOCAL_SRC_FILES := \
+#	aidl/lex.yy.c \
+#	aidl/aidl_language_y.tab.c \
+#	aidl/aidl.cpp \
+#	aidl/aidl_language.cpp \
+#	aidl/options.cpp \
+#	aidl/search_path.cpp \
+#	aidl/AST.cpp \
+#	aidl/Type.cpp \
+#	aidl/generate_java.cpp \
+#	aidl/generate_java_binder.cpp \
+#	aidl/generate_java_rpc.cpp
+#
+#LOCAL_CFLAGS := -g
+#LOCAL_MODULE := aidl
+#
+#include $(BUILD_EXECUTABLE)

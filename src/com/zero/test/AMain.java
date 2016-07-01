@@ -20,6 +20,27 @@ public class AMain {
         install(TestHandler.getInstance());
         install(TestInflate.getInstance());
         install(TestTopActivity.getInstance());
+        install(TestOther.getInstance());
+        install(TestPhone.getInstance());
+        install(TestOverlay.getInstance());
+        install(TestMemoryManagement.getInstance());
+        install(TestProvider.getInstance());
+        install(TestBitmap.getInstance());
+        install(TestVideoCover.getInstance());
+        install(TestMusicPlayer.getInstance());
+        install(TestInputMethod.getInstance());
+        install(TestAndfixActivity.getInstance());
+        install(TestInstalledApps.getInstance());
+        install(TestDexOpt.getInstance());
+        install(TestPlugin.getInstance());
+        install(TestSensor.getInstance());
+        install(TestJudgApkPath.getInstance());
+        install(TestStartActivity.getInstance());
+        install(TestTransactionTooLarge.getInstance());
+        install(TestOOM.getInstance());
+        install(TestLocalSocket.getInstance());
+        install(TestSms.getInstance());
+        install(TestNotificationListener.getInstance());
     }
     
     public static List<IListData> testList() {

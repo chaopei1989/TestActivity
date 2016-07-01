@@ -1,5 +1,7 @@
 package com.multiprocess.service;
 
+import android.view.Surface;
+
 interface IStopPackageService {
 
 	oneway void killNoWait(in String name);
@@ -16,6 +18,6 @@ interface IStopPackageService {
 	
 	oneway void killUserNoWait();
 	
-	void killUserWait();
+	void killUserWait(inout Surface a);
 	
 }

@@ -1,7 +1,6 @@
 package com.zero;
 
 import java.io.BufferedReader;
-import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -10,14 +9,52 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.lang.reflect.Method;
 
+import android.annotation.TargetApi;
 import android.content.Context;
+import android.os.Build;
 import android.util.Log;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 
 public class Util {
 
     public static final String TAG = "Util";
 
+    @TargetApi(19)
+    public static void setTranslucent(Window win, boolean statusBar, boolean navigationBar) {
+        WindowManager.LayoutParams winParams = win.getAttributes();
+
+        if (21 <= Build.VERSION.SDK_INT && statusBar) {
+            try {
+                Method method;
+                win.getDecorView().setSystemUiVisibility(
+                        View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+                winParams.flags |= 0x80000000;
+                win.setAttributes(winParams);
+                method = ReflectionUtils.getMethod(Window.class,
+                        "setStatusBarColor", int.class);
+                method.invoke(win, win.getContext().getResources().getColor(android.R.color.transparent));
+            } catch (Exception e) {
+                Log.e("setTranslucent","error! the screen IMMERSIVE is failed!");
+            }
+        } else {
+            if (statusBar) {
+                winParams.flags |= 0x04000000;
+            } else {
+                winParams.flags &= ~0x04000000;
+            }
+            if (navigationBar) {
+                winParams.flags |= 0x08000000;
+            } else {
+                winParams.flags &= ~0x08000000;
+            }
+            win.setAttributes(winParams);
+        }
+    }
+    
     /** 返回当前的进程名 */
     public static String getCurrentProcessName() {
         BufferedReader reader = null;
@@ -55,6 +92,9 @@ public class Util {
     }
 
     public static boolean copyAssetToFile(Context c, String name, File target) {
+        if (!target.getParentFile().isDirectory()) {
+            target.getParentFile().mkdirs();
+        }
         InputStream sourceStream = null;
         OutputStream targetStream = null;
         try {
@@ -202,5 +242,24 @@ public class Util {
                 }
             }
         }
+    }
+
+    public static File createNewFile(String fileName) {
+        File file = new File(fileName);
+        File dir = file.getParentFile();
+        if (!dir.isDirectory() && !dir.mkdirs()) {
+            return null;
+        }
+        if (file.exists() && !file.delete()) {
+            return null;
+        }
+        try {
+            if (!file.createNewFile()) {
+                return null;
+            }
+        } catch (IOException e) {
+            return null;
+        }
+        return file;
     }
 }

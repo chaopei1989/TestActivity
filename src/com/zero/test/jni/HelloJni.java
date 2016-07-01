@@ -149,6 +149,6 @@ public class HelloJni extends Activity
     public native int nativeGetArgMax();
 
     static {
-        System.loadLibrary("test");
+//        System.loadLibrary("test");
     }
 }
